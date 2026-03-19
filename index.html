@@ -16,15 +16,30 @@
   --t1:#e8edf4;--t2:#8b97a8;--t3:#4a5a70;
   --mono:'IBM Plex Mono',monospace;--sans:'Space Grotesk',sans-serif;--r:8px;
 }
-html,body{background:var(--bg);color:var(--t1);font-family:var(--sans);font-size:13px;min-height:100vh;}
-body{display:flex;justify-content:center;align-items:flex-start;padding:28px 20px 40px;}
-body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:9999;}
+html,body{
+  background:#ffffff;
+  color:var(--t1);font-family:var(--sans);font-size:13px;min-height:100vh;
+  width:100%;overflow:hidden;
+}
+body{
+  display:flex;justify-content:center;align-items:flex-start;
+  padding:28px 20px 40px;
+  position:relative;
+}
+
+/* ── CHART CANVAS BACKGROUND ── */
+#chart-bg{ display:none; }
 
 .workspace{display:flex;align-items:stretch;gap:14px;}
 
-/* ── PANEL BASE ── */
-.panel{background:var(--bg1);border:1px solid var(--border2);border-radius:14px;overflow:hidden;position:relative;display:flex;flex-direction:column;}
-.panel::before{content:'';position:absolute;top:0;left:30px;right:30px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.4;z-index:2;pointer-events:none;}
+/* ── PANEL BASE — solid dark on white bg ── */
+.panel{
+  background:rgba(10,14,22,0.92);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:14px;overflow:hidden;position:relative;display:flex;flex-direction:column;
+  box-shadow:0 12px 48px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.12);
+}
+.panel::before{content:'';position:absolute;top:0;left:30px;right:30px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.55;z-index:2;pointer-events:none;}
 .panel-left{width:340px;}
 .panel-right{width:320px;}
 
@@ -224,10 +239,10 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
       <div class="field-row">
         <span class="field-label">Model</span>
         <select class="field-select" style="flex:1;">
-          <option>ChatGPT 4o</option>
-          <option>DeepSeek v3.2</option>
           <option>Xiaomi v2</option>
-          <option>Claude Sonet 4.6</option>
+          <option>Alpha v3</option>
+          <option>Smart Scalp</option>
+          <option>Trend Master</option>
         </select>
         <button class="btn-update">UPDATE</button>
       </div>
